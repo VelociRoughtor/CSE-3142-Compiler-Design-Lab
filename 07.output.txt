@@ -1,0 +1,16 @@
+int : Keyword
+x : Identifier
+= : Operator
+10 : Constant
+float : Keyword
+y : Identifier
+= : Operator
+3.14 : Constant
+if : Keyword
+(x : Invalid/Undefined
+> : Operator
+y) : Invalid/Undefined
+return : Keyword
+"hello" : Constant
+'a' : Constant
+++ : Operator

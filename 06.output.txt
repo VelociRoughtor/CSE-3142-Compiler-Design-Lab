@@ -1,0 +1,10 @@
+ch_ar : Character Variable
+ch_* : Invalid/Undefined
+_chd : Invalid/Undefined
+bn_b : Binary Variable
+bn_/ : Invalid/Undefined
+bn_ffs4 : Binary Variable
+0 : Invalid/Undefined
+01 : Binary Number
+0000 : Binary Number
+1010 : Invalid/Undefined

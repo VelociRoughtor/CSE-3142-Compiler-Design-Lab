@@ -1,0 +1,10 @@
+int : Invalid/Undefined
+bool : Float Variable
+reverse : Float Variable
+0.34 : Float Number
+1.2 : Invalid/Undefined
+.544 : Invalid/Undefined
+5.4.5 : Invalid/Undefined
+0.6543 : Double Number
+23. : Invalid/Undefined
+888.5...55.33 : Invalid/Undefined
