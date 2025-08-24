@@ -1,0 +1,63 @@
+Input: int
+Output: Keyword
+
+Input: while
+Output: Keyword
+
+Input: white
+Output: Identifier
+
+Input: if
+Output: Keyword
+
+Input: id
+Output: Identifier
+
+Input: _x
+Output: Identifier
+
+Input: 8.7
+Output: Float
+
+Input: 94
+Output: Integer
+
+Input: "c++"
+Output: String
+
+Input: 5j
+Output: Invalid/Undefined
+
+Input: =
+Output: Assignment Operator
+
+Input: +
+Output: Arithmetic Operator
+
+Input: >=
+Output: Relational Operator
+
+Input: main
+Output: Identifier
+
+Input: 2.6.7
+Output: Invalid/Undefined
+
+Input: 5.
+Output: Invalid/Undefined
+
+Input: 646.45
+Output: Float
+
+Input: do
+Output: Keyword
+
+Input: 554
+Output: Integer
+
+Input: abc
+Output: Identifier
+
+Input: +
+Output: Arithmetic Operator
+

@@ -1,0 +1,11 @@
+Nipu read book : Valid sentence
+Nipu read book. : Invalid sentence
+nipu read book : Invalid sentence
+nipu read mango book : Invalid sentence
+Salma take mango : Valid sentence
+I eat grass : Invalid sentence
+cow eat grass : Invalid sentence
+Selim run : Valid sentence
+we read book : Invalid sentence
+read book : Invalid sentence
+Sagor mango eat : Invalid sentence
