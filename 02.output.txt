@@ -1,0 +1,14 @@
+
+solution of a:
+Number of vowels: 18
+Number of consonants: 28
+
+solution of b:
+The vowels are: uuieueooueieeEieei
+Unique vowels present: e i o u 
+The consonants are: MnmnsthstdntfCmptrScncngnrng
+Unique consonants present: c d f g h m n p r s t 
+
+solution of c:
+Words starting with vowel: is of Engineering 
+Words starting with consonant: Munmun the student Computer Science 

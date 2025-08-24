@@ -1,0 +1,8 @@
+Number of words: 6
+Number of letters: 16
+Number of digits: 5
+Number of other characters: 8
+
+The letters are: MdTareqZamanPart
+The digits are: 32011
+The other characters are: .,-,

@@ -1,0 +1,3 @@
+CSE-3141 : Computer Science & Engineering, 3rd year, 1st semester, Compiler Design, Theory
+ICE-3161 : Information & Communication Engineering, 3rd year, 1st semester, Communication Engineering, Theory
+CSE-3132 : Computer Science & Engineering, 3rd year, 1st semester, Web Engineering, Lab

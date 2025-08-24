@@ -1,0 +1,13 @@
+int : Integer Variable
+jnt : Integer Variable
+null : Integer Variable
+flag : Invalid Input or Undefined
+2 : Short Integer Number
+32 : Short Integer Number
+345 : Short Integer Number
+04 : Invalid Input or Undefined
+4567 : Short Integer Number
+012334 : Invalid Input or Undefined
+12345 : Long Integer Number
+t5y : Invalid Input or Undefined
+100000 : Long Integer Number
