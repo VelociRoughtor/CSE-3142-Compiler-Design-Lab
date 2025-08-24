@@ -10,4 +10,4 @@ flag : Invalid Input or Undefined
 012334 : Invalid Input or Undefined
 12345 : Long Integer Number
 t5y : Invalid Input or Undefined
-100000 : Long Integer Number
+9999 : Short Integer Number
