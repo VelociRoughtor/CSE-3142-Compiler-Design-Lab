@@ -1,0 +1,2 @@
+Enter infix expression : (A + B) * (D / E)
+Postfix : AB+DE/*
