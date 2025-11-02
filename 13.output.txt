@@ -1,0 +1,20 @@
+==== Parsed Grammar ====
+E -> TP
+P -> @ | +TP
+T -> FQ
+Q -> @ | *FQ
+F -> i | (E)
+
+==== FIRST Sets ====
+FIRST(E) = {(, i}
+FIRST(P) = {+, @}
+FIRST(T) = {(, i}
+FIRST(Q) = {*, @}
+FIRST(F) = {(, i}
+
+==== FOLLOW Sets ====
+FOLLOW(E) = {$, )}
+FOLLOW(P) = {$, )}
+FOLLOW(T) = {$, ), +}
+FOLLOW(Q) = {$, ), +}
+FOLLOW(F) = {$, ), *, +}

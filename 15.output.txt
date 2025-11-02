@@ -1,0 +1,26 @@
+Input string : i+i+i*(i+i)
+E--->TP
+     T--->FQ
+          F--->i
+          Q--->@
+     P--->+TP
+          T--->FQ
+               F--->i
+               Q--->@
+          P--->+TP
+               T--->FQ
+                    F--->i
+                    Q--->*FQ
+                         F--->(E)
+                              E--->TP
+                                   T--->FQ
+                                        F--->i
+                                        Q--->@
+                                   P--->+TP
+                                        T--->FQ
+                                             F--->i
+                                             Q--->@
+                                        P--->@
+                         Q--->@
+               P--->@
+Accepted
