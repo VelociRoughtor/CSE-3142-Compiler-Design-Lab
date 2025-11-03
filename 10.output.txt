@@ -1,10 +1,23 @@
-+--------+--------------------------------------------------+--------------------------------------------------+------------------------------+
-| Step   | Stack                                            | Input                                            | Action                       |
-+--------+--------------------------------------------------+--------------------------------------------------+------------------------------+
-| 1      | E->E+E                                           | E->E+E E->E*E E->(E) E->a a+a*(a+a)+a $          | Shift                        |
-| 2      | E->E+E E->E*E                                    | E->E*E E->(E) E->a a+a*(a+a)+a $                 | Shift                        |
-| 3      | E->E+E E->E*E E->(E)                             | E->(E) E->a a+a*(a+a)+a $                        | Shift                        |
-| 4      | E->E+E E->E*E E->(E) E->a                        | E->a a+a*(a+a)+a $                               | Shift                        |
-| 5      | E->E+E E->E*E E->(E) E->a a+a*(a+a)+a            | a+a*(a+a)+a $                                    | Shift                        |
-| 6      | E->E+E E->E*E E->(E) E->a a+a*(a+a)+a            | $                                                | Rejected!!!                  |
-+--------+--------------------------------------------------+--------------------------------------------------+------------------------------+
+Stack          Input          Action
+$              a+a*(a+a)+a$   
+$a             +a*(a+a)+a$    Shift a
+$E             +a*(a+a)+a$    Reduce a -> E
+$E+            a*(a+a)+a$     Shift +
+$E+a           *(a+a)+a$      Shift a
+$E+E           *(a+a)+a$      Reduce a -> E
+$E             *(a+a)+a$      Reduce E+E -> E
+$E*            (a+a)+a$       Shift *
+$E*(           a+a)+a$        Shift (
+$E*(a          +a)+a$         Shift a
+$E*(E          +a)+a$         Reduce a -> E
+$E*(E+         a)+a$          Shift +
+$E*(E+a        )+a$           Shift a
+$E*(E+E        )+a$           Reduce a -> E
+$E*(E          )+a$           Reduce E+E -> E
+$E*(E)         +a$            Shift )
+$E*E           +a$            Reduce (E) -> E
+$E             +a$            Reduce E*E -> E
+$E+            a$             Shift +
+$E+a           $              Shift a
+$E+E           $              Reduce a -> E
+$E             $              Reduce E+E -> E
