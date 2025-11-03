@@ -5,6 +5,7 @@ map<char, vector<string>> grammar;
 vector<char> order;
 map<char, set<char>> FIRST;
 map<char, set<char>> FOLLOW;
+map<pair<char, char>, string> table;
 set<char> visited;
 
 void computeFIRST(char symbol) {
@@ -163,82 +164,38 @@ int main(){
     }
 
     cout << "\n==== LL(1) Parsing Table ====\n";
-    // step-1: collect all terminals except epsilon
-    set<char> terminals;
-    for (auto &p: grammar) {
-        for (auto &rhs: p.second) {
-            for (auto &c: rhs) {
-                if (c != '@' && !isupper(c)) terminals.insert(c); 
+    for(char row : order) {
+        for(char col : FIRST[row]) {
+            if(col != '@') {
+                bool isSet = false;
+                for(auto str : grammar[row]) {
+                    if(str[0] == col) {
+                        table[{row, col}] = string(1, row) + "->" + str;
+                        isSet = true;
+                    }
+                }
+                if(!isSet)
+                    table[{row, col}] = string(1, row) + "->" + grammar[row][0];
+            }
+        }
+        if(FIRST[row].find('@') != FIRST[row].end()) {
+            for(char col : FOLLOW[row]) {
+                table[{row, col}] = string(1, row) + "->@";
             }
         }
     }
-    terminals.insert('$');
-
-    // step-2: build the parsing table
-    map<pair<char, char>, string> parsingTable;
-    for (auto &p: grammar) {
-        char lhs = p.first;
-        for (string &rhs: p.second) {
-            set<char> firstAlpha;
-            bool epsilonPossible = true;
-            for (int i = 0; i < rhs.size(); i++) {
-                char x = rhs[i];
-
-                if (!isupper(x)) {
-                    firstAlpha.insert(x);
-                    epsilonPossible = false;
-                    break;
-                }
-
-                for (char f: FIRST[x]) {
-                    if (f != '@') firstAlpha.insert(f);
-                }
-
-                if (FIRST[x].find('@') == FIRST[x].end()) {
-                    epsilonPossible = false;
-                    break;
-                }
-            }
-            if (epsilonPossible) firstAlpha.insert('@');
-
-            // Rule 1: for each terminal in FIRST(alpha)
-            for (char a: firstAlpha) {
-                if (a != '@') {
-                    parsingTable[{lhs, a}] = string(1, lhs) + " -> " + rhs;
-                }
-            }
-
-            // Rule 2: if @ belongs to first alpha
-            if (firstAlpha.find('@') != firstAlpha.end()) {
-                for (char b: FOLLOW[lhs]) {
-                    parsingTable[{lhs, b}] = string(1, lhs) + " -> @";
-                }
-            }
+    cout<<"_____Parse Table_____\n";
+    vector<char> column = {'i', '+', '*', '(', ')', '$'};
+    for(char c : column) cout<<setw(8)<<c; cout<<"\n";
+    for(char row : order) {
+        cout<<row<<"    ";
+        for(char col : column) {
+            if(!table[{row, col}].empty())
+                cout<<left<<setw(8)<<table[{row, col}];
+            else
+                cout<<"        ";
         }
-    }
-
-    // step-3: print LL(1) parsing table
-    vector<char> termVec(terminals.begin(), terminals.end());
-    int colWidth = 10;
-    string horizontalLine = "+" + string(colWidth - 1, '-');
-    for (int i = 0; i < termVec.size(); i++) horizontalLine += "+" + string(colWidth - 1, '-');
-    horizontalLine += "+";
-
-    // Print header
-    cout << horizontalLine << "\n";
-    cout << "|" << setw(colWidth - 1) << left << " ";
-    for (char t : termVec) cout << "|" << setw(colWidth - 1) << left << t;
-    cout << "|\n" << horizontalLine << "\n";
-
-    // Print each row
-    for (char A : order) {
-        cout << "|" << setw(colWidth - 1) << left << A;
-        for (char t : termVec) {
-            auto key = make_pair(A, t);
-            string cell = (parsingTable.find(key) != parsingTable.end()) ? parsingTable[key] : " ";
-            cout << "|" << setw(colWidth - 1) << left << cell;
-        }
-        cout << "|\n" << horizontalLine << "\n";
+        cout<<"\n";
     }
 
     return 0;
